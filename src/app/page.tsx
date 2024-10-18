@@ -29,7 +29,7 @@ export default function LandingPage() {
                 <div className='flex flex-col gap-2 min-[400px]:flex-row'>
                   <Link
                     className='inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-primary shadow transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-300 disabled:pointer-events-none disabled:opacity-50'
-                    href='#'
+                    href='/campaigns/new'
                   >
                     Start a Campaign
                   </Link>

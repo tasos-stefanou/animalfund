@@ -14,3 +14,17 @@ generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
+
+model Campaign {
+  id            String   @id @default(uuid())
+  name          String
+  description   String   @db.Text
+  fundingGoal   Float
+  currentAmount Float    @default(0)
+  mainPhotoUrl  String
+  // additionalPhotoUrls String[] // Stored as a JSON array
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  userId        String
+  // donations     Donation[]
+}
