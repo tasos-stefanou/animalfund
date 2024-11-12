@@ -3,7 +3,6 @@ import './globals.css';
 
 // app/layout.tsx
 import { ClerkProvider } from '@clerk/nextjs';
-import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: 'AnimalFund',

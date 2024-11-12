@@ -209,7 +209,7 @@ export default function LandingPage() {
                       {testimonial.role}
                     </p>
                     <p className='text-gray-500 dark:text-gray-400 italic'>
-                      "{testimonial.quote}"
+                      &quot;{testimonial.quote}&quot;
                     </p>
                   </div>
                 </div>
@@ -265,8 +265,8 @@ export default function LandingPage() {
                   Our Global Impact
                 </h2>
                 <p className='text-gray-500 dark:text-gray-400 mb-6'>
-                  Animalfund has made a significant difference worldwide. Here's
-                  a glimpse of our collective achievements:
+                  Animalfund has made a significant difference worldwide.
+                  Here&apos;s a glimpse of our collective achievements:
                 </p>
                 <div className='grid grid-cols-2 gap-4'>
                   {[

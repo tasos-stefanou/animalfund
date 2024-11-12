@@ -21,7 +21,7 @@ model Campaign {
   description   String   @db.Text
   fundingGoal   Float
   currentAmount Float    @default(0)
-  mainPhotoUrl  String
+  // mainPhotoUrl  String
   // additionalPhotoUrls String[] // Stored as a JSON array
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt

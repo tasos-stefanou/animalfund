@@ -24,7 +24,6 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from '@/components/ui/card';
 import { createCampaign } from '../_actions/campaign-actions';
 
@@ -41,27 +40,6 @@ const campaignSchema = z.object({
     .number()
     .min(1, 'Funding goal must be at least 1')
     .max(1000000, 'Funding goal must be less than 1,000,000'),
-  mainPhoto: z
-    .instanceof(File)
-    .refine((file) => file.size <= 5000000, `Max file size is 5MB.`)
-    .refine(
-      (file) => ['image/jpeg', 'image/png', 'image/webp'].includes(file.type),
-      '.jpg, .png, .webp files are accepted.'
-    ),
-  additionalPhotos: z
-    .array(z.instanceof(File))
-    .max(5, 'You can upload up to 5 additional photos')
-    .refine(
-      (files) => files.every((file) => file.size <= 5000000),
-      `Max file size is 5MB.`
-    )
-    .refine(
-      (files) =>
-        files.every((file) =>
-          ['image/jpeg', 'image/png', 'image/webp'].includes(file.type)
-        ),
-      '.jpg, .png, .webp files are accepted.'
-    ),
 });
 
 type CampaignFormValues = z.infer<typeof campaignSchema>;
@@ -77,7 +55,6 @@ export default function NewCampaignPage() {
       name: '',
       description: '',
       fundingGoal: 0,
-      additionalPhotos: [],
     },
   });
 
@@ -91,7 +68,6 @@ export default function NewCampaignPage() {
     try {
       const campaign = await createCampaign(values);
 
-      // Redirect to the new campaign page
       router.push(`/campaigns/${campaign.id}`);
     } catch (error) {
       console.error('Error creating campaign:', error);
@@ -180,7 +156,7 @@ export default function NewCampaignPage() {
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name='mainPhoto'
               render={({ field }) => (
@@ -222,7 +198,7 @@ export default function NewCampaignPage() {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <Button type='submit' disabled={isSubmitting}>
               {isSubmitting ? 'Creating Campaign...' : 'Create Campaign'}
             </Button>

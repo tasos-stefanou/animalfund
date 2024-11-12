@@ -45,6 +45,7 @@ export async function createCampaign(values: CampaignValues) {
         userId,
       },
     });
+    console.log('test');
 
     revalidatePath('/campaigns');
     return campaign;
